@@ -2,10 +2,24 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": ".NET Backend",
-      "type": "dotnet",
-      "request": "launch",
-      "projectPath": "${workspaceFolder}/HockeyStatTracker.Api/HockeyStatTracker.Api.csproj"
+        "name": ".NET Backend (Manual)",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "program": "${workspaceFolder}/HockeyStatTracker.Api/bin/Debug/net9.0/HockeyStatTracker.Api.dll",
+        "args": [],
+        "cwd": "${workspaceFolder}/HockeyStatTracker.Api",
+        "stopAtEntry": false,
+        "serverReadyAction": {
+            "action": "openExternally",
+            "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+        },
+        "env": {
+            "ASPNETCORE_ENVIRONMENT": "Development"
+        },
+        "sourceFileMap": {
+            "/Views": "${workspaceFolder}/Views"
+        }
     },
     {
       "name": "React Frontend (Chrome)",
