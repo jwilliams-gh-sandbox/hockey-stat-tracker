@@ -51,7 +51,8 @@ public class PenguinsMonitorService : BackgroundService
     {
         try
         {
-            var today = DateTime.UtcNow.ToString("yyyy-MM-dd");
+            // TODO: .Now gives local time, need to handle UTC comparisons
+            var today = DateTime.Now.ToString("yyyy-MM-dd");
             var response = await _httpClient.GetFromJsonAsync<NhlScheduleResponse>(PitScheduleUrl);
             
             // find today's game
