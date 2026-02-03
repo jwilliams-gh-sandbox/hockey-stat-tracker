@@ -1,11 +1,11 @@
 # Hockey Stat Tracker
 This repo is primarily to practice C# and react. The idea for a "hockey stat tracker" came to me while trying to think of a simple app while watching/listening to a Penguins :penguin: game in the background. Why not build an app that queries for, captures, and presents scores live while I'm paying more attention to building the app :thinking:...
 
-### Steps to run
+### Steps to run backend
 1. `git clone https://github.com/jwilliams-gh-sandbox/hockey-stat-tracker.git`
 2. `dotnet run --project ./HockeyStatTracker.Api/HockeyStatTracker.Api.csproj`
 3. On a game day you'll see something similar to:
-```shell
+```bash
 Using launch settings from ./Properties/launchSettings.json...
 Building...
 info: HockeyStatTracker.Api.PenguinsMonitorService[0]
@@ -23,3 +23,15 @@ info: HockeyStatTracker.Api.PenguinsMonitorService[0]
 info: HockeyStatTracker.Api.PenguinsMonitorService[0]
       Monitoring game 2025020877 for goals...
 ```
+4. You can also query for a game today:
+```bash
+curl --request GET --url "http://localhost:5032/api/schedule/is-game-today" | jq
+
+{
+  "isGameToday": true
+}
+```
+
+### Steps to run frontend
+1. `cd ./HockeyStatTracker.Ui`
+2. `npm run dev`

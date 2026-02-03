@@ -79,6 +79,13 @@ public class PenguinsMonitorService : BackgroundService
         var tomorrow = now.AddDays(1).Date.AddMinutes(1); // 12:01 AM tomorrow
         return tomorrow - now;
     }
+
+    public bool IsThereAGameToday()
+    {
+        var gameIdTask = GetGameIdForToday();
+        gameIdTask.Wait();
+        return gameIdTask.Result.HasValue;
+    }
 }
 
 public record NhlScheduleResponse(List<NhlGame> Games);
